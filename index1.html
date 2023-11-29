@@ -34,7 +34,25 @@
     <h2 id="t1">Form title</h2>
   </div>
   <br><br>
-  <button id="fix">Change the order</button>
+  <button id="fix" onclick="changeOrder();">Change the order</button>
+ <script>
+	function changeOrder(){
+	
+		//get random order of element ids
+		const changeOrder = ("box",["t1", "i1", "b1"]);
+		
+		//reorder the elements in the DOM. This function finds whatever has the id of box and scans the entire document. For all the id's. creates an array called box. appends it to box so that it ends up looking like the first line. 
+		const container = document.getElementById('box');
+		
+		changeOrder.forEach((x) => {
+			container.appendChild(document.getElementById(x)); //for every element in change order, assign value an x and it will run this script. 
+		});//The script is going to scan the document for the element. The first look t1 is going to be saved to x. then it's appending the child or adding t1 to box. Does it does 3 times.
+		
+	}
+  </script>
+  
+  
 
+</body>
 
-</body></html>
+</html>
