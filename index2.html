@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://interview-challenge.onrender.com/index2.html -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST 2</title>
+    <script src="https://nr-customers.s3.amazonaws.com/PS/mscala/interview/index2.js"></script>
+
+    <style>
+        #container>button {
+            font-size: 20px;
+            padding: 14px;
+        }
+
+        /*Style for the green available cursor*/
+        .available {
+            cursor: pointer;
+        }
+
+        /* Style for the red disabled cursor. 
+       I assigned the background grey in the class because it would be instantaneously changed when populated. 
+       Marking it as important also overrides the red. However using importnat isn't good css practice. however it worked in this case.
+       */
+        .unavailable {
+            background-color: lightgray !important; /* overrides computed style in javascript file*/
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TEST 2</h1>
+
+    <div id="container">
+    </div>
+</body>
+<script>
+
+    setInterval(function () { // setting an interval which is going to run the function every 0.01seconds. 
+        var actionButton = document.getElementById("actionButton"); //declaring variable called action button. uses getelementbyid method to scan document for element with id = actionbutton.
+        if (actionButton) { //if statement that checks if action button is true
+            var computedStyle = getComputedStyle(actionButton); //method getcomputedStyle is getting the styling of action button
+            var backgroundColor = computedStyle.backgroundColor; //gets background color for the action button by creating variable background color that stores the background color
+            if (backgroundColor == "rgb(211, 211, 211)") { //if the background color is grey because it's been overrided..
+                actionButton.disabled = true; //set button property disabled to true.
+                clearInterval(checkButton); //end the interval
+            }
+            clearInterval(checkButton);//if it's green, also end the interval
+        }
+    }, 10); //second argument, running every 0.01 seconds
+    
+
+</script>
+
+
+</html>

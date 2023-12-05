@@ -26,7 +26,7 @@
 <body>
   <h1>TEST 1</h1>
   <div id="box">
-    <button id="b1" onclick="alert(&#39;clicked&#39;);">BUTTON 1</button>
+    <button id="b1" onclick="alert('clicked');">BUTTON 1</button>
     <div id="i1">
       <label for="text1">Insert text here:</label>
       <input type="text" id="text1">
@@ -38,16 +38,18 @@
  <script>
 	function changeOrder(){
 	
-		//get random order of element ids
+		//get random order of element ids by creating an array with two arguments. One is container box, and the other is an array of strings
 		const changeOrder = ("box",["t1", "i1", "b1"]);
 		
-		//reorder the elements in the DOM. This function finds whatever has the id of box and scans the entire document. For all the id's. creates an array called box. appends it to box so that it ends up looking like the first line. 
-		const container = document.getElementById('box');
+		// This function scans the entire document for a container with the id box and saves an array of the elements in a constant variable called container.
+    const container = document.getElementById('box');
 		
-		changeOrder.forEach((x) => {
-			container.appendChild(document.getElementById(x)); //for every element in change order, assign value an x and it will run this script. 
-		});//The script is going to scan the document for the element. The first look t1 is going to be saved to x. then it's appending the child or adding t1 to box. Does it does 3 times.
+    //for loop that iterates through the array of strings and reorganizes the dom to reflect that order
+		changeOrder.forEach((x) => { // a for loop that takes each element of changeOrder
+			container.appendChild(document.getElementById(x)); //appends container with elements with the same id from change order.
+		});
 		
+
 	}
   </script>
   
